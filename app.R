@@ -71,7 +71,7 @@ ui <- dashboardPage(
       menuItem("營業時間牌告匯率（近三個月）", tabName = "currency"),
       menuItem("存款牌告利率（不含大額美金）", tabName = "interest"),
       br(),
-      HTML("系統建置：涂玉臻<br>建置時間：2017年7月")
+      HTML("系統建置：涂玉臻<br>建置時間：2017年7月<br>在<a href=\"https://github.com/corytu/CurrencyDashboard\">GitHub</a>上查看原始碼")
     )
   ),
   dashboardBody(
