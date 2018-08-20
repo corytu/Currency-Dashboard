@@ -59,7 +59,6 @@ interests <- melt(interests, id.vars = "幣別",
 moneytype <- c("美金 (USD)", "澳幣 (AUD)", "南非幣 (ZAR)",
                "日圓 (JPY)", "歐元 (EUR)", "人民幣 (CNY)")
 
-# Define UI for application that draws a histogram
 ui <- dashboardPage(
   dashboardHeader(title = "臺銀外匯資料"),
   dashboardSidebar(
@@ -94,7 +93,6 @@ ui <- dashboardPage(
   )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
   
   # Selected money type (e.g. USD)
