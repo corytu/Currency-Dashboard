@@ -1,9 +1,12 @@
+# shinyapps.io deployment directory
+rsconnect/
+
 # History files
 .Rhistory
 .Rapp.history
 
 # Session Data files
-.RData
+*.RData
 
 # Example code in package build process
 *-Ex.R
