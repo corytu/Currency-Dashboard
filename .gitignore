@@ -1,6 +1,9 @@
 # shinyapps.io deployment directory
 rsconnect/
 
+# R file recording last crawling time
+data/last_crawled_time.R
+
 # History files
 .Rhistory
 .Rapp.history
