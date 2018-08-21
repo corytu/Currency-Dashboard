@@ -1,4 +1,8 @@
-source("data/last_crawled_time.R")
+if (!file.exists("data/last_crawled_time.R")) {
+  last_crawled <- Sys.time() - as.difftime(1, units = "days")
+} else {
+  source("data/last_crawled_time.R")
+}
 
 if (Sys.time() - last_crawled > as.difftime(4, units = "hours")) {
   # ------ Get currency data
@@ -50,11 +54,8 @@ if (Sys.time() - last_crawled > as.difftime(4, units = "hours")) {
                     variable.name = "存款類型", value.name = "年息") %>%
     .[order(.$幣別),]
   
-  moneytype <- c("美金 (USD)", "澳幣 (AUD)", "南非幣 (ZAR)",
-                 "日圓 (JPY)", "歐元 (EUR)", "人民幣 (CNY)")
-  
   # Save needed data and time of last crawling
-  save(list = c("currencies", "interests", "moneytype"), file = "data/latest_data.RData")
+  save(list = c("currencies", "interests"), file = "data/latest_data.RData")
   last_crawled <- Sys.time()
   dump("last_crawled", "data/last_crawled_time.R")
 }

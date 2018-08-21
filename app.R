@@ -6,10 +6,8 @@ library(plotly)
 library(httr)
 library(rvest)
 library(reshape2)
-
-# Source the crawler and load the data
-source("data/crawler.R")
-load("data/latest_data.RData")
+moneytype <- c("美金 (USD)", "澳幣 (AUD)", "南非幣 (ZAR)",
+               "日圓 (JPY)", "歐元 (EUR)", "人民幣 (CNY)")
 
 ui <- dashboardPage(
   dashboardHeader(title = "臺銀外匯資料"),
@@ -48,6 +46,9 @@ ui <- dashboardPage(
 )
 
 server <- function(input, output) {
+  # Source the crawler and load the data
+  source("data/crawler.R")
+  load("data/latest_data.RData")
   
   # Selected money type (e.g. USD)
   target.cur <- reactive({
