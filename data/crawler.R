@@ -4,7 +4,7 @@ if (!file.exists("data/last_crawled_time.R")) {
   source("data/last_crawled_time.R")
 }
 
-if (Sys.time() - last_crawled > as.difftime(4, units = "hours")) {
+if (Sys.time() - last_crawled > as.difftime(30, units = "mins")) {
   # ------ Get currency data
   # Take the urls and make sure their retrieving methods (all GET here)
   cur.url <- list(usd = "http://rate.bot.com.tw/xrt/quote/ltm/USD",
