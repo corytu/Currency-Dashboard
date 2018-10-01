@@ -96,8 +96,8 @@ server <- function(input, output) {
   
   output$trend <- renderValueBox({
     buy <- subset(target.cur(), 交易種類 == "即期賣出")
-    lastday <- buy$掛牌日期[nrow(buy)]
-    comparedday <- lastday - 7
+    lastday <- max(buy$掛牌日期)
+    comparedday <- max(buy$掛牌日期[buy$掛牌日期 <= lastday - 7])
     changevalue <- round((buy$匯率[nrow(buy)] - buy$匯率[buy$掛牌日期 == comparedday])/
       buy$匯率[buy$掛牌日期 == comparedday] * 100, 2)
     valueBox(
